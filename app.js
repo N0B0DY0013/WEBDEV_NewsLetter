@@ -48,7 +48,7 @@ app.post("/", function(req, res) {
 
             var json_respo = JSON.parse(JSON.stringify(response));
 
-            console.log("errors", json_respo.errors.length, json_respo.errors);
+            //console.log("errors", json_respo.errors.length, json_respo.errors);
 
             //checks the error returned by mailchimp API
             if(json_respo.errors.length) {
@@ -58,21 +58,23 @@ app.post("/", function(req, res) {
                 res.sendFile(__dirname + "/success.html");
             }
 
-            //res.send();
-        
         };
 
         add_audicence();
     
     } catch (error) {
-        //catches an error outside mailchimp API
-        //res.send("Non mailchimp Error!");
         res.sendFile(__dirname + "/failure.html");
     }
 
 });
 
 app.post("/failure", function(req, res) {
+
+    res.redirect("/");
+
+});
+
+app.post("/success", function(req, res) {
 
     res.redirect("/");
 
