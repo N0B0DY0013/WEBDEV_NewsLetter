@@ -1,6 +1,6 @@
 
-//mailchimp api key: f5687a1070fc7916198bd1ecfc32ac31-us18
-//listid: 0371520638
+//mailchimp api key: XXXXXX
+//listid: XXXXX
 //Heroku URL: https://stark-anchorage-84066.herokuapp.com/
 
 const express = require("express");
@@ -40,12 +40,12 @@ app.post("/", function(req, res) {
         }
 
         mailchimp.setConfig({
-            apiKey: "f5687a1070fc7916198bd1ecfc32ac31-us18",
+            apiKey: "XXXXX",
             server: "us18",
         });
 
         const add_audicence = async() => {
-            const response = await mailchimp.lists.batchListMembers("0371520638", data)
+            const response = await mailchimp.lists.batchListMembers("XXXXX", data)
 
             var json_respo = JSON.parse(JSON.stringify(response));
 
